@@ -1,0 +1,5 @@
+node_modules/
+messages.json
+generate_sound.py
+output.txt
+.env

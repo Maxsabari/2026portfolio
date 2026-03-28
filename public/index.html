@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Essential SEO Tags for Google Search -->
+    <title>Sabariraja Muruganantham | Full Stack Developer</title>
+    <meta name="description"
+        content="Sabariraja Muruganantham is a highly skilled Full Stack Developer from Sivaganga, Tamilnadu. Explore my premium portfolio featuring advanced web applications and beautiful animations.">
+    <meta name="keywords"
+        content="Sabariraja Muruganantham, Full Stack Developer, Web Developer, React Developer, Node.js Developer, Portfolio, Programming, Sivaganga, Tamilnadu">
+    <meta name="author" content="Sabariraja Muruganantham">
+
+    <!-- Open Graph (For beautiful link previews on WhatsApp, LinkedIn, etc.) -->
+    <meta property="og:title" content="Sabariraja Muruganantham | Full Stack Developer">
+    <meta property="og:description"
+        content="Explore the premium portfolio of Sabariraja Muruganantham, a Full Stack Developer building stunning web applications.">
+    <meta property="og:type" content="website">
+    <meta name="description"
+        content="Portfolio of Sabariraja Muruganantham, Full Stack Developer creating premium and animated web experiences.">
+    <link rel="stylesheet" href="styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@400;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="dark-theme">
+    <!-- PRELOADER -->
+    <div id="preloader" class="preloader">
+        <div class="preloader-content">
+            <h1 class="smooth-text">Sabariraja Muruganantham</h1>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-follower"></div>
+
+    <!-- Animated Dots Background -->
+    <canvas id="dots-canvas"></canvas>
+
+    <div class="background-aurora"></div>
+
+    <nav class="glass-nav">
+        <div class="logo">SM.</div>
+        <ul class="nav-links">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#academics">Academics</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero section-reveal">
+            <div class="hero-content">
+                <span class="greeting">Hi there, I'm</span>
+                <h1 class="gradient-text">Sabariraja <br> Muruganantham</h1>
+                <h2 class="role">Full Stack Developer & AI Enthusiast</h2>
+                <p class="hero-desc">
+                    I craft premium, high-performance web applications with stunning animations and solid backend
+                    architectures.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn primary-btn"><i class="fas fa-folder-open"></i> View Work</a>
+                    <a href="/resume.pdf" target="_blank" class="btn golden-btn"><i class="fas fa-file-pdf"></i>
+                        Resume</a>
+                    <a href="#contact" class="btn secondary-btn glowing-btn"><i class="fas fa-paper-plane"></i> Hire
+                        Me</a>
+                </div>
+            </div>
+            <div class="hero-image-container">
+                <!-- Fallback to a gradient avatar if image is missing -->
+                <div class="avatar-glow"></div>
+                <img src="profile.jpg" alt="Sabariraja Muruganantham" id="profile-img" class="hero-image"
+                    onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Sabariraja+Muruganantham&background=222222&color=00ffcc&size=400';">
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about section-reveal">
+            <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
+            <div class="about-grid">
+                <div class="about-text glass-card">
+                    <p>
+                        I am a <strong>Bachelor of Information Technology</strong> student at Dhanalakhsmi Srinivasan
+                        Engineering College (2022 - 2026), consistently achieving a spot on the Dean's List with a Cum.
+                        GPA of 7.8/10.0.
+                    </p>
+                    <p>
+                        With a passion for building beautiful and functional digital products, I specialize in
+                        full-stack development, blending robust backend logic with smooth frontend animations.
+                    </p>
+                    <div class="coursework">
+                        <h3>Relevant Coursework</h3>
+                        <ul>
+                            <li>Web Development</li>
+                            <li>Data Structures</li>
+                            <li>Object-Oriented Programming</li>
+                            <li>Cloud Computing</li>
+                            <li>Internet of Things</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="skills-container glass-card">
+                    <h3>Technical Arsenal</h3>
+                    <div class="skill-category">
+                        <h4>Programming</h4>
+                        <div class="skill-tags">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">Express</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Tools & Technology</h4>
+                        <div class="skill-tags">
+                            <span class="tag">VS Code</span>
+                            <span class="tag">Git & GitHub</span>
+                            <span class="tag">AWS</span>
+                            <span class="tag">UNIX / Linux</span>
+                            <span class="tag">Artificial Intelligence</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Certifications</h4>
+                        <div class="skill-tags certs">
+                            <span class="tag cert"><i class="fas fa-certificate"></i> AI Tools (be10X)</span>
+                            <span class="tag cert"><i class="fas fa-certificate"></i> Python (Maas Info)</span>
+                            <span class="tag cert"><i class="fas fa-certificate"></i> Investment Banking (BoA)</span>
+                            <span class="tag cert"><i class="fas fa-certificate"></i> Info Security (Infosys)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services section-reveal">
+            <h2 class="section-title">What I <span class="gradient-text">Do</span></h2>
+            <div class="services-grid">
+                <div class="service-card glass-card hover-lift">
+                    <i class="fas fa-layer-group service-icon"></i>
+                    <h3>Frontend Architecture</h3>
+                    <p>Building responsive, accessible, and performant user interfaces using modern CSS, JavaScript, and
+                        glassmorphic aesthetics that wow the user.</p>
+                </div>
+                <div class="service-card glass-card hover-lift">
+                    <i class="fas fa-server service-icon"></i>
+                    <h3>Backend Development</h3>
+                    <p>Designing secure, scalable server-side systems and RESTful APIs with Node.js, Express, and
+                        databases tailored for high performance.</p>
+                </div>
+                <div class="service-card glass-card hover-lift">
+                    <i class="fas fa-pen-nib service-icon"></i>
+                    <h3>Technical Content</h3>
+                    <p>Crafting data-driven, SEO-optimized technical articles and documentations that bridge the gap
+                        between complex tech and the audience.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats section-reveal">
+            <div class="stats-container glass-card">
+                <div class="stat-item">
+                    <h3 class="stat-number">2+</h3>
+                    <p>Years Full Stack</p>
+                </div>
+                <div class="stat-item">
+                    <h3 class="stat-number">10+</h3>
+                    <p>Creative Projects</p>
+                </div>
+                <div class="stat-item">
+                    <h3 class="stat-number">4+</h3>
+                    <p>Certifications</p>
+                </div>
+                <div class="stat-item">
+                    <h3 class="stat-number">7.8</h3>
+                    <p>Cum. GPA</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Academics Section -->
+        <section id="academics" class="academics section-reveal">
+            <h2 class="section-title">Academic <span class="gradient-text">Performance</span></h2>
+            <p style="text-align: center; color: var(--text-secondary); margin-bottom: 3rem; font-size: 1.1rem;">My
+                Learning Journey up to the 7th Semester</p>
+
+            <div class="academics-grid">
+                <!-- Data is visually mapped with a conic-gradient percentage (GPA * 10) -->
+                <div class="sem-card glass-card hover-lift">
+                    <div class="sem-header">Semester 1</div>
+                    <div class="gpa-ring" style="--gpa: 75;"><span>7.5</span></div>
+                </div>
+                <div class="sem-card glass-card hover-lift">
+                    <div class="sem-header">Semester 2</div>
+                    <div class="gpa-ring" style="--gpa: 76;"><span>7.6</span></div>
+                </div>
+                <div class="sem-card glass-card hover-lift">
+                    <div class="sem-header">Semester 3</div>
+                    <div class="gpa-ring" style="--gpa: 79;"><span>7.9</span></div>
+                </div>
+                <div class="sem-card glass-card hover-lift">
+                    <div class="sem-header">Semester 4</div>
+                    <div class="gpa-ring" style="--gpa: 80;"><span>8.0</span></div>
+                </div>
+                <div class="sem-card glass-card hover-lift">
+                    <div class="sem-header">Semester 5</div>
+                    <div class="gpa-ring" style="--gpa: 77;"><span>7.7</span></div>
+                </div>
+                <div class="sem-card glass-card hover-lift">
+                    <div class="sem-header">Semester 6</div>
+                    <div class="gpa-ring" style="--gpa: 81;"><span>8.1</span></div>
+                </div>
+                <div class="sem-card glass-card hover-lift">
+                    <div class="sem-header">Semester 7</div>
+                    <div class="gpa-ring" style="--gpa: 78;"><span>7.8</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="experience section-reveal">
+            <h2 class="section-title">Professional <span class="gradient-text">Experience</span></h2>
+            <div class="timeline">
+
+                <div class="timeline-item glass-card slide-in-left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Web Development Intern</h3>
+                        <h4 class="company">Gen Z Soft | Remote</h4>
+                        <span class="date">Feb 2025 – Mar 2025</span>
+                        <ul>
+                            <li>Designed and developed portfolio web apps and e-commerce platforms using core web
+                                technologies.</li>
+                            <li>Integrated secure payment gateways and authentication systems ensuring transaction
+                                security.</li>
+                            <li>Optimized web performance and enhanced SEO via efficient asset management.</li>
+                            <li>Developed cross-browser compatible interactive UI components.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item glass-card slide-in-right">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Content Designer Intern</h3>
+                        <h4 class="company">To-Let Globe | Lucknow, India</h4>
+                        <span class="date">April 2024 – July 2024</span>
+                        <ul>
+                            <li>Enhanced frontend components using HTML, CSS, and JS improving UI responsiveness.</li>
+                            <li>Implemented design iterations ensuring seamless backend integration.</li>
+                            <li>Optimized page accessibility combining industry best practices.</li>
+                            <li>Added interactive UI animations to increase engagement.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item glass-card slide-in-left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Content Writing Intern</h3>
+                        <h4 class="company">Earth5R | Virtual</h4>
+                        <span class="date">April 2024</span>
+                        <ul>
+                            <li>Produced high-quality content on sustainability and environmental issues.</li>
+                            <li>Conducted in-depth data-driven research for informative articles.</li>
+                            <li>Optimized structure and readability maintaining SEO best practices.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects section-reveal">
+            <h2 class="section-title">Featured <span class="gradient-text">Projects</span> & Repos</h2>
+
+            <div class="slider-container">
+                <button class="slider-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+
+                <div class="projects-slider">
+                    <!-- Projects injected dynamically by JS from GitHub -->
+                    <div class="project-wrapper" id="project-wrapper">
+                        <!-- Populated via script.js -->
+                    </div>
+                </div>
+
+                <button class="slider-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+
+            <div id="github-loading" style="text-align:center; color: var(--accent-main); margin-top:2rem;">
+                <i class="fas fa-spinner fa-spin"></i> Fetching live repositories...
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS SECTION -->
+        <section id="testimonials" class="testimonials section-reveal">
+            <div class="container">
+                <h2 class="section-title">Client <span class="highlight">Feedback</span></h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card glass-card hover-lift cascade-element">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p class="review-text">"Sabariraja is an exceptional full-stack developer. His ability to build
+                            out both our elegant frontend interfaces and complex backend architecture saved our project
+                            timeline. Highly recommended!"</p>
+                        <div class="client-info">
+                            <div class="client-avatar"><i class="fas fa-user-circle"></i></div>
+                            <div>
+                                <h4>Michael R.</h4>
+                                <span>Product Manager, TechFlow</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card glass-card hover-lift cascade-element">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p class="review-text">"Working with Sabari was a seamless experience. The smooth animations and
+                            UI details he added to our platform completely transformed our user engagement metrics. A
+                            true professional."</p>
+                        <div class="client-info">
+                            <div class="client-avatar"><i class="fas fa-user-circle"></i></div>
+                            <div>
+                                <h4>Sarah Lin</h4>
+                                <span>Creative Director</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card glass-card hover-lift cascade-element">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p class="review-text">"He doesn't just write code; he crafts digital experiences. He resolved
+                            our most painful backend bugs while making the site look stunning. We look forward to hiring
+                            him again."</p>
+                        <div class="client-info">
+                            <div class="client-avatar"><i class="fas fa-user-circle"></i></div>
+                            <div>
+                                <h4>David K.</h4>
+                                <span>Startup Founder</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact section-reveal">
+            <div class="contact-container glass-card">
+                <div class="contact-info">
+                    <h2 class="section-title">Get In <span class="gradient-text">Touch</span></h2>
+                    <p>I'm currently open to new opportunities. Whether you have a question, a project idea, or just
+                        want to say hi, feel free to drop a message!</p>
+                    <ul class="contact-details">
+                        <li><i class="fas fa-map-marker-alt"></i> Sivaganga, Tamilnadu</li>
+                        <li><i class="fas fa-envelope"></i> maxsabari07@gmail.com</li>
+                        <li><i class="fas fa-phone-alt"></i> +91 6385657126</li>
+                    </ul>
+                    <div class="social-links">
+                        <a href="https://github.com/Sabariraja Muruganantham" target="_blank" class="social-icon"><i
+                                class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/in/Sabariraja Muruganantham" target="_blank"
+                            class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <form id="contact-form" class="contact-form">
+                    <div class="input-group">
+                        <input type="text" id="name" name="name" required placeholder=" ">
+                        <label for="name">Your Name</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" id="email" name="email" required placeholder=" ">
+                        <label for="email">Your Email</label>
+                    </div>
+                    <div class="input-group">
+                        <textarea id="message" name="message" rows="5" required placeholder=" "></textarea>
+                        <label for="message">Your Message</label>
+                    </div>
+                    <button type="submit" class="submit-btn primary-btn">
+                        <span>Send Message</span> <i class="fas fa-paper-plane"></i>
+                    </button>
+                    <p id="form-status" class="form-status"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Sabariraja Muruganantham. Built with <i class="fas fa-heart"></i> and Node.js</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
