@@ -53,4 +53,23 @@ app.get('*', (req, res) => {
 // Start server
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
+
+    // Self-ping mechanism to keep the server awake on Render
+    // Render instances sleep after 15 minutes of inactivity; pinging every 14 minutes
+    const url = process.env.RENDER_EXTERNAL_URL;
+    if (url) {
+        const https = require('https');
+        setInterval(() => {
+            console.log(`Self-pinging ${url} to stay awake...`);
+            https.get(url, (res) => {
+                if (res.statusCode === 200) {
+                    console.log('Self-ping successful.');
+                } else {
+                    console.error(`Self-ping failed with status code: ${res.statusCode}`);
+                }
+            }).on('error', (e) => {
+                console.error(`Self-ping error: ${e.message}`);
+            });
+        }, 14 * 60 * 1000); // 14 minutes in milliseconds
+    }
 });
