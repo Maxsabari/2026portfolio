@@ -1,10 +1,119 @@
 // Wait for DOM to load
 document.addEventListener('DOMContentLoaded', () => {
 
+    // =============================================
+    // 🎵 INTRO MUSIC SYSTEM
+    // =============================================
+    const introAudio = new Audio('intro.wav');
+    introAudio.volume = 0.55;
+    introAudio.loop = false;
+
+    let musicEnabled = true;
+    let musicStarted = false;
+
+    // Create floating music toggle button
+    const musicBtn = document.createElement('button');
+    musicBtn.id = 'music-toggle-btn';
+    musicBtn.setAttribute('aria-label', 'Toggle music');
+    musicBtn.innerHTML = '<i class="fas fa-music"></i>';
+    musicBtn.style.cssText = `
+        position: fixed;
+        bottom: 28px;
+        right: 28px;
+        z-index: 9999;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: none;
+        background: linear-gradient(135deg, rgba(0,240,255,0.2), rgba(138,43,226,0.3));
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(0,240,255,0.35);
+        color: #00f0ff;
+        font-size: 1.1rem;
+        cursor: pointer;
+        box-shadow: 0 0 18px rgba(0,240,255,0.35), 0 4px 20px rgba(0,0,0,0.4);
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    `;
+    document.body.appendChild(musicBtn);
+
+    // Pulsing ring animation via injected keyframes
+    const styleTag = document.createElement('style');
+    styleTag.textContent = `
+        @keyframes musicPulse {
+            0% { box-shadow: 0 0 0 0 rgba(0,240,255,0.45), 0 4px 20px rgba(0,0,0,0.4); }
+            70% { box-shadow: 0 0 0 14px rgba(0,240,255,0), 0 4px 20px rgba(0,0,0,0.4); }
+            100% { box-shadow: 0 0 0 0 rgba(0,240,255,0), 0 4px 20px rgba(0,0,0,0.4); }
+        }
+        #music-toggle-btn.playing { animation: musicPulse 1.8s ease-out infinite; }
+        #music-toggle-btn:hover { transform: scale(1.12); }
+        #music-toggle-btn.muted { color: rgba(255,255,255,0.35); border-color: rgba(255,255,255,0.15); box-shadow: none; animation: none; }
+    `;
+    document.head.appendChild(styleTag);
+
+    function startMusic() {
+        if (musicStarted) return;
+        musicStarted = true;
+        introAudio.play()
+            .then(() => {
+                musicBtn.classList.add('playing');
+            })
+            .catch(() => {
+                // Autoplay blocked — silently wait for first user interaction
+                musicStarted = false;
+            });
+    }
+
+    function stopMusic() {
+        introAudio.pause();
+        introAudio.currentTime = 0;
+        musicBtn.classList.remove('playing');
+    }
+
+    introAudio.addEventListener('ended', () => {
+        musicBtn.classList.remove('playing');
+        musicStarted = false;
+    });
+
+    // Toggle on button click
+    musicBtn.addEventListener('click', () => {
+        if (!introAudio.paused) {
+            stopMusic();
+            musicEnabled = false;
+            musicBtn.classList.add('muted');
+            musicBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+        } else {
+            musicEnabled = true;
+            musicBtn.classList.remove('muted');
+            musicBtn.innerHTML = '<i class="fas fa-music"></i>';
+            musicStarted = false;
+            startMusic();
+        }
+    });
+
+    // First user interaction fallback (handles autoplay policy)
+    const autoplayFallback = () => {
+        if (musicEnabled && !musicStarted) startMusic();
+        document.removeEventListener('click', autoplayFallback);
+        document.removeEventListener('keydown', autoplayFallback);
+        document.removeEventListener('touchstart', autoplayFallback);
+    };
+    document.addEventListener('click', autoplayFallback, { once: true });
+    document.addEventListener('keydown', autoplayFallback, { once: true });
+    document.addEventListener('touchstart', autoplayFallback, { once: true });
+
+    // =============================================
     // 0. Preloader & Hardware Vibration Logic
+    // =============================================
     const preloader = document.getElementById('preloader');
 
     if (preloader) {
+        // Try to play music immediately with preloader
+        startMusic();
+
         // Attempt physical device vibration (works on supported mobile browsers)
         if (navigator.vibrate) {
             // Pulse pattern in ms: [vibrate, pause, vibrate]
