@@ -317,58 +317,58 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const defaultProjects = `
         <div class="project-card glass-card hover-lift">
+            <div class="project-img" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&q=80'); background-size: cover; background-position: center;">
+                <div class="overlay">
+                    <a href="https://github.com/maxsabari07" target="_blank" class="view-btn"><i class="fab fa-github"></i> Source</a>
+                </div>
+            </div>
+            <div class="project-info">
+                <h3>Electricity Intelligence</h3>
+                <p>An end-to-end data analytics system with predictive ML modeling (regression), consumption forecasting, and interactive SQL queries for carbon footprint reports.</p>
+                <div class="tech-stack">
+                    <span>Python</span><span>Scikit-Learn</span><span>SQL</span><span>Pandas</span>
+                </div>
+            </div>
+        </div>
+        <div class="project-card glass-card hover-lift">
+            <div class="project-img" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80'); background-size: cover; background-position: center;">
+                <div class="overlay">
+                    <a href="https://github.com/maxsabari07" target="_blank" class="view-btn"><i class="fas fa-external-link-alt"></i> Live Dashboard</a>
+                </div>
+            </div>
+            <div class="project-info">
+                <h3>Simpliaxis Campaign ROI</h3>
+                <p>An interactive business intelligence reporting tool analyzing Google Ads, LinkedIn Ads, and course conversion performance in the Bengaluru region.</p>
+                <div class="tech-stack">
+                    <span>Power BI</span><span>SQL</span><span>Python</span><span>Excel</span>
+                </div>
+            </div>
+        </div>
+        <div class="project-card glass-card hover-lift">
+            <div class="project-img" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80'); background-size: cover; background-position: center;">
+                <div class="overlay">
+                    <a href="https://github.com/maxsabari07" target="_blank" class="view-btn"><i class="fab fa-github"></i> Source</a>
+                </div>
+            </div>
+            <div class="project-info">
+                <h3>Feedback Sentiment Engine</h3>
+                <p>A Python-based NLP system that ingests student feedback reviews from Simpliaxis courses, aggregates sentiment scores, and highlights curriculum gaps.</p>
+                <div class="tech-stack">
+                    <span>Python</span><span>NLTK</span><span>VADER</span><span>Matplotlib</span>
+                </div>
+            </div>
+        </div>
+        <div class="project-card glass-card hover-lift">
             <div class="project-img vidtube-bg">
                 <div class="overlay">
-                    <a href="#" class="view-btn"><i class="fab fa-github"></i> Source</a>
+                    <a href="https://github.com/maxsabari07" target="_blank" class="view-btn"><i class="fab fa-github"></i> Source</a>
                 </div>
             </div>
             <div class="project-info">
                 <h3>VidTube | YouTube Clone</h3>
-                <p>A responsive video streaming platform replicating YouTube’s core features. Includes custom video playback interfaces, live search functionality, and sleek UI components.</p>
+                <p>A full-stack video hosting replica with user authentication, video uploads, commenting pipelines, custom search indexing, and a modern responsive grid UI.</p>
                 <div class="tech-stack">
-                    <span>HTML5</span><span>CSS3</span><span>JavaScript</span>
-                </div>
-            </div>
-        </div>
-        <div class="project-card glass-card hover-lift">
-            <div class="project-img portfolio-bg">
-                <div class="overlay">
-                    <a href="#" class="view-btn"><i class="fas fa-external-link-alt"></i> Live View</a>
-                </div>
-            </div>
-            <div class="project-info">
-                <h3>Premium Portfolio</h3>
-                <p>A full-stack personal portfolio demonstrating expertise in modern web aesthetics. Features custom glassmorphism, glowing hover interactions, API fetching, and scrolling animations.</p>
-                <div class="tech-stack">
-                    <span>Node.js</span><span>Express</span><span>Vanilla UI</span>
-                </div>
-            </div>
-        </div>
-        <div class="project-card glass-card hover-lift">
-            <div class="project-img vidtube-bg" style="background: linear-gradient(135deg, #111, #222);">
-                <div class="overlay">
-                    <a href="#" class="view-btn"><i class="fas fa-external-link-alt"></i> Live View</a>
-                </div>
-            </div>
-            <div class="project-info">
-                <h3>E-Commerce Dashboard</h3>
-                <p>A highly interactive admin dashboard for managing products and sales data. Includes real-time charts, dark mode, and a fully responsive grid system.</p>
-                <div class="tech-stack">
-                    <span>React JS</span><span>Tailwind</span><span>Recharts</span>
-                </div>
-            </div>
-        </div>
-        <div class="project-card glass-card hover-lift">
-            <div class="project-img portfolio-bg" style="background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);">
-                <div class="overlay">
-                    <a href="#" class="view-btn"><i class="fab fa-github"></i> Source</a>
-                </div>
-            </div>
-            <div class="project-info">
-                <h3>AI Task Manager</h3>
-                <p>A smart productivity application that leverages AI to sort, prioritize, and manage daily to-dos. Includes JWT authentication and a seamless draggable UI.</p>
-                <div class="tech-stack">
-                    <span>Vue.js</span><span>Express</span><span>MongoDB</span>
+                    <span>HTML5</span><span>CSS3</span><span>Express</span><span>JavaScript</span>
                 </div>
             </div>
         </div>
@@ -469,6 +469,137 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         window.addEventListener('resize', updateSliderPosition);
+    }
+
+    // 9. Interactive Analytics Sandbox
+    const runQueryBtn = document.getElementById('run-query-btn');
+    const sqlCodeEl = document.getElementById('sql-code');
+    const consoleTextEl = document.getElementById('console-text');
+    const queryTabs = document.querySelectorAll('.query-tab');
+    
+    const kpi1Label = document.getElementById('kpi-1-label');
+    const kpi2Label = document.getElementById('kpi-2-label');
+    const kpi3Label = document.getElementById('kpi-3-label');
+    
+    const kpi1Value = document.getElementById('kpi-1-value');
+    const kpi2Value = document.getElementById('kpi-2-value');
+    const kpi3Value = document.getElementById('kpi-3-value');
+    
+    const chartBarsContainer = document.getElementById('chart-bars-container');
+
+    const datasets = {
+        1: {
+            sql: `SELECT course_name, SUM(sales) AS revenue, AVG(conversion_rate) AS conv_rate \nFROM simpliaxis_courses \nGROUP BY course_name \nORDER BY revenue DESC;`,
+            kpis: {
+                label1: "Total Revenue", value1: "$184,200",
+                label2: "Avg. Conversion", value2: "21.6%",
+                label3: "Total Enrollments", value3: "1,540"
+            },
+            chart: [
+                { label: "CSM (Scrum Master)", value: 85, color: "var(--accent-main)", displayValue: "$85K" },
+                { label: "CSPO (Product Owner)", value: 62, color: "#8a2be2", displayValue: "$62K" },
+                { label: "SAFe POPM", value: 37, color: "var(--accent-secondary)", displayValue: "$37.2K" }
+            ],
+            console: `Executing SQL query...\nRows returned: 3\nExecution time: 4.8ms\nStatus: 200 OK\nFetched fields: [course_name, revenue, conv_rate]`
+        },
+        2: {
+            sql: `SELECT lead_source, COUNT(*) AS lead_count, AVG(roi_percentage) AS roi \nFROM simpliaxis_marketing \nWHERE location = 'Bengaluru' \nGROUP BY lead_source;`,
+            kpis: {
+                label1: "Marketing Spend", value1: "$12,400",
+                label2: "Avg. Campaign ROI", value2: "320%",
+                label3: "Bengaluru Leads", value3: "4,820"
+            },
+            chart: [
+                { label: "LinkedIn Ads", value: 92, color: "var(--accent-main)", displayValue: "92%" },
+                { label: "Google Search", value: 78, color: "#8a2be2", displayValue: "78%" },
+                { label: "Email Campaigns", value: 48, color: "var(--accent-secondary)", displayValue: "48%" }
+            ],
+            console: `Executing SQL query...\nRows returned: 3\nExecution time: 6.2ms\nStatus: 200 OK\nFilter: location = 'Bengaluru'`
+        },
+        3: {
+            sql: `SELECT trainer_name, AVG(csat_score) AS avg_csat, COUNT(feedback_id) AS total_reviews \nFROM simpliaxis_feedback \nGROUP BY trainer_name;`,
+            kpis: {
+                label1: "Average CSAT", value1: "4.85 / 5.0",
+                label2: "Satisfaction Rate", value2: "97.4%",
+                label3: "Total Feedbacks", value3: "820"
+            },
+            chart: [
+                { label: "Trainer A (Agile)", value: 97, color: "var(--accent-main)", displayValue: "4.85/5" },
+                { label: "Trainer B (Scrum)", value: 94, color: "#8a2be2", displayValue: "4.70/5" },
+                { label: "Trainer C (SAFe)", value: 89, color: "var(--accent-secondary)", displayValue: "4.45/5" }
+            ],
+            console: `Executing SQL query...\nRows returned: 3\nExecution time: 3.1ms\nStatus: 200 OK\nAggregated rows: 820 reviews`
+        }
+    };
+
+    let activeQueryId = 1;
+
+    function renderPlaygroundData(id) {
+        const data = datasets[id];
+        sqlCodeEl.textContent = data.sql;
+        consoleTextEl.textContent = `> Ready. Click 'Run Query' to execute...`;
+    }
+
+    queryTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            queryTabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            activeQueryId = parseInt(tab.getAttribute('data-query'));
+            renderPlaygroundData(activeQueryId);
+            
+            // Auto click run when tab changes
+            runQueryBtn.click();
+        });
+    });
+
+    if (runQueryBtn) {
+        runQueryBtn.addEventListener('click', () => {
+            const data = datasets[activeQueryId];
+            consoleTextEl.textContent = `> Running query...\n> Connecting to simpliaxis_db...\n`;
+            
+            runQueryBtn.disabled = true;
+            runQueryBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Executing...';
+
+            setTimeout(() => {
+                consoleTextEl.textContent = `> Query executed successfully.\n\n${data.console}`.trim();
+                
+                // Update KPIs
+                kpi1Label.textContent = data.kpis.label1;
+                kpi1Value.textContent = data.kpis.value1;
+                kpi2Label.textContent = data.kpis.label2;
+                kpi2Value.textContent = data.kpis.value2;
+                kpi3Label.textContent = data.kpis.label3;
+                kpi3Value.textContent = data.kpis.value3;
+
+                // Update Chart
+                chartBarsContainer.innerHTML = '';
+                data.chart.forEach(item => {
+                    const barWrapper = document.createElement('div');
+                    barWrapper.className = 'chart-bar-wrapper';
+                    
+                    barWrapper.innerHTML = `
+                        <div class="chart-bar-value">${item.displayValue}</div>
+                        <div class="chart-bar" style="height: 0%; background: ${item.color}"></div>
+                        <div class="chart-bar-label">${item.label}</div>
+                    `;
+                    chartBarsContainer.appendChild(barWrapper);
+                    
+                    // Trigger animation
+                    setTimeout(() => {
+                        const barEl = barWrapper.querySelector('.chart-bar');
+                        if (barEl) barEl.style.height = `${item.value}%`;
+                    }, 50);
+                });
+
+                runQueryBtn.disabled = false;
+                runQueryBtn.innerHTML = '<i class="fas fa-play"></i> Run Query';
+            }, 800);
+        });
+        
+        // Initial setup
+        setTimeout(() => {
+            runQueryBtn.click();
+        }, 500);
     }
 
 });
