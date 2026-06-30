@@ -216,47 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 5. Contact Form Submission (AJAX)
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            const submitBtn = contactForm.querySelector('button[type="submit"]');
-            const originalBtnText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-            submitBtn.disabled = true;
-
-            const payload = {
-                name: contactForm.name.value,
-                email: contactForm.email.value,
-                message: contactForm.message.value
-            };
-
-            try {
-                const response = await fetch('/api/contact', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-
-                const result = await response.json();
-
-                if (response.ok) {
-                    showToast('Success!', result.message, 'success');
-                    contactForm.reset();
-                } else {
-                    showToast('Error', result.error || 'Failed to send message.', 'error');
-                }
-            } catch (err) {
-                console.error(err);
-                showToast('Error', 'An unexpected error occurred.', 'error');
-            } finally {
-                submitBtn.innerHTML = originalBtnText;
-                submitBtn.disabled = false;
-            }
-        });
-    }
+    // 5. Contact Form Submission (AJAX removed for mailto functionality)
 
     // Custom Toast Notification Function
     function showToast(title, message, type) {
@@ -420,123 +380,65 @@ document.addEventListener('DOMContentLoaded', () => {
 
     animateDots();
 
+    // Gamification Explosion
+    window.addEventListener('click', (e) => {
+        for(let i = 0; i < 15; i++) {
+            const angle = Math.random() * Math.PI * 2;
+            const speed = Math.random() * 8 + 2;
+            const p = new Dot();
+            p.x = e.clientX;
+            p.y = e.clientY;
+            p.vx = Math.cos(angle) * speed;
+            p.vy = Math.sin(angle) * speed;
+            p.radius = Math.random() * 4 + 2;
+            p.color = colors[Math.floor(Math.random() * colors.length)];
+            dots.push(p);
+            
+            // Limit dots array to prevent performance issues
+            if (dots.length > 200) {
+                dots.shift();
+            }
+        }
+    });
+
     // 8. GitHub Repos Fetch & Slider Logic
     const projectWrapper = document.getElementById('project-wrapper');
     const loadingEl = document.getElementById('github-loading');
 
     const defaultProjects = `
         <div class="project-card glass-card hover-lift">
-            <div class="project-img" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&q=80'); background-size: cover; background-position: center;">
+            <div class="project-img" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('qrcode_guardian.png'); background-size: cover; background-position: center;">
                 <div class="overlay">
-                    <a href="https://github.com/maxsabari07" target="_blank" class="view-btn"><i class="fab fa-github"></i> Source</a>
+                    <a href="https://qrcode-guardian-pwa.vercel.app/" target="_blank" class="view-btn"><i class="fas fa-external-link-alt"></i> Visit Site</a>
                 </div>
             </div>
             <div class="project-info">
-                <h3>Electricity Intelligence</h3>
-                <p>An end-to-end data analytics system with predictive ML modeling (regression), consumption forecasting, and interactive SQL queries for carbon footprint reports.</p>
+                <h3>QR Code Guardian</h3>
+                <p>A modern, sleek, glowing QR code security application featuring a dark theme, neon accents, and a visually stunning glassmorphism interface.</p>
                 <div class="tech-stack">
-                    <span>Python</span><span>Scikit-Learn</span><span>SQL</span><span>Pandas</span>
+                    <span>PWA</span><span>Security</span><span>React</span><span>Glassmorphism</span>
                 </div>
             </div>
         </div>
         <div class="project-card glass-card hover-lift">
-            <div class="project-img" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80'); background-size: cover; background-position: center;">
+            <div class="project-img" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('sabaricode_arena.png'); background-size: cover; background-position: center;">
                 <div class="overlay">
-                    <a href="https://github.com/maxsabari07" target="_blank" class="view-btn"><i class="fas fa-external-link-alt"></i> Live Dashboard</a>
+                    <a href="https://sabaricode-arena.vercel.app/" target="_blank" class="view-btn"><i class="fas fa-external-link-alt"></i> Visit Site</a>
                 </div>
             </div>
             <div class="project-info">
-                <h3>Simpliaxis Campaign ROI</h3>
-                <p>An interactive business intelligence reporting tool analyzing Google Ads, LinkedIn Ads, and course conversion performance in the Bengaluru region.</p>
+                <h3>SabariCode Arena</h3>
+                <p>A high-quality competitive coding platform interface featuring a futuristic code editor, glowing syntax highlighting, and dark mode gamification.</p>
                 <div class="tech-stack">
-                    <span>Power BI</span><span>SQL</span><span>Python</span><span>Excel</span>
-                </div>
-            </div>
-        </div>
-        <div class="project-card glass-card hover-lift">
-            <div class="project-img" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80'); background-size: cover; background-position: center;">
-                <div class="overlay">
-                    <a href="https://github.com/maxsabari07" target="_blank" class="view-btn"><i class="fab fa-github"></i> Source</a>
-                </div>
-            </div>
-            <div class="project-info">
-                <h3>Feedback Sentiment Engine</h3>
-                <p>A Python-based NLP system that ingests student feedback reviews from Simpliaxis courses, aggregates sentiment scores, and highlights curriculum gaps.</p>
-                <div class="tech-stack">
-                    <span>Python</span><span>NLTK</span><span>VADER</span><span>Matplotlib</span>
-                </div>
-            </div>
-        </div>
-        <div class="project-card glass-card hover-lift">
-            <div class="project-img vidtube-bg">
-                <div class="overlay">
-                    <a href="https://github.com/maxsabari07" target="_blank" class="view-btn"><i class="fab fa-github"></i> Source</a>
-                </div>
-            </div>
-            <div class="project-info">
-                <h3>VidTube | YouTube Clone</h3>
-                <p>A full-stack video hosting replica with user authentication, video uploads, commenting pipelines, custom search indexing, and a modern responsive grid UI.</p>
-                <div class="tech-stack">
-                    <span>HTML5</span><span>CSS3</span><span>Express</span><span>JavaScript</span>
+                    <span>Web App</span><span>UI/UX</span><span>Gamified</span><span>Code Editor</span>
                 </div>
             </div>
         </div>
     `;
 
-    async function fetchGitHubRepos() {
-        try {
-            // Using maxsabari07 (extracted from email) as GitHub username identifier.
-            const resData = await fetch('https://api.github.com/users/maxsabari07/repos?sort=updated&per_page=6');
-            if (!resData.ok) {
-                throw new Error('Could not fetch GitHub repos directly');
-            }
-
-            const data = await resData.json();
-
-            if (data.length > 0) {
-                let html = '';
-                data.forEach(repo => {
-                    if (repo.fork) return;
-
-                    // Assign a repeating cool background class
-                    const bgClass = Math.random() > 0.5 ? 'portfolio-bg' : 'vidtube-bg';
-
-                    html += `
-                    <div class="project-card glass-card hover-lift">
-                        <div class="project-img ${bgClass}">
-                            <div class="overlay">
-                                <a href="${repo.html_url}" target="_blank" class="view-btn"><i class="fab fa-github"></i> Source</a>
-                            </div>
-                        </div>
-                        <div class="project-info">
-                            <h3>${repo.name.replace(/-/g, ' ').replace(/_/g, ' ')}</h3>
-                            <p>${repo.description || 'A stunning web project built with passion and modern technologies. Check out the source code!'}</p>
-                            <div class="tech-stack">
-                                <span>${repo.language || 'Code'}</span>
-                                <span>⭐ ${repo.stargazers_count}</span>
-                            </div>
-                        </div>
-                    </div>
-                    `;
-                });
-                projectWrapper.innerHTML = html + defaultProjects;
-            } else {
-                projectWrapper.innerHTML = defaultProjects;
-            }
-        } catch (err) {
-            console.error('GitHub API error:', err);
-            projectWrapper.innerHTML = defaultProjects + `
-                <div class="project-card glass-card hover-lift" style="display:flex; justify-content:center; align-items:center;">
-                    <p style="text-align:center; color: var(--accent-secondary)">Update your GitHub username in script.js to auto-fetch your live repos!</p>
-                </div>
-            `;
-        } finally {
-            if (loadingEl) loadingEl.style.display = 'none';
-            initSlider();
-        }
-    }
-
-    fetchGitHubRepos();
+    projectWrapper.innerHTML = defaultProjects;
+    if (loadingEl) loadingEl.style.display = 'none';
+    initSlider();
 
     function initSlider() {
         const prevBtn = document.querySelector('.prev-btn');
